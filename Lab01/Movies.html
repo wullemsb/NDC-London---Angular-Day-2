@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IMDB But Better</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body data-ng-app="movieApp" >
+    <h1>IMDB But Better</h1>
+    <div data-ng-controller="MovieListController">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Length</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tr data-ng-repeat="movie in movies">
+                <td>{{movie.title}}</td>
+                <td>{{movie.length}}</td>
+                <td><input type="button" value="+ Length" class="btn btn-default" ng-click="increment(movie)" /></td>
+                <td><input type="button" value="- Length" class="btn btn-default" ng-click="decrement(movie)" /></td>
+            </tr>
+        </table>
+    </div>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/jquery-1.9.1.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="movieApp/movieApp.js"></script>
+    <script src="movieApp/controllers/movieListController.js"></script>
+</body>
+</html>
