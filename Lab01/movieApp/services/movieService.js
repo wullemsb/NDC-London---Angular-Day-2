@@ -1,8 +1,6 @@
 ﻿(function (app) {
     var movieService = function ($http) {
         var getAllMovies = function () {
-
-            var defer
             return $http.get("movieApp/data/movies.json");
         };
 
