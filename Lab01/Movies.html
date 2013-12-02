@@ -3,36 +3,50 @@
 <head>
     <title>IMDB But Better</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        input.ng-valid.ng-dirty {
+            background-color:green;
+        }
+        input.ng-invalid.ng-dirty {
+            background-color: red;
+        }
+ 
+    </style>
 </head>
 <body data-ng-app="movieApp" >
     <h1>IMDB But Better</h1>
-    <div data-ng-controller="MovieListController">
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Length</th>
-                    <th></th>
-                    <th></th>
+    <pre>
+</pre>
+    <div data-ng-controller="MovieListController" class="row">
+        <div class="col-md-6">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Length</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr data-ng-repeat="movie in movies | orderBy:'length'">
+                    <td>{{movie.title |uppercase}}</td>
+                    <td>{{movie.length}}</td>
+                    <td><input type="button" value="Edit" class="btn btn-default" ng-click="edit($index)" /></td>
                 </tr>
-            </thead>
-            <tr data-ng-repeat="movie in movies">
-                <td>{{movie.title}}</td>
-                <td>{{movie.length}}</td>
-                <td><input type="button" value="+ Length" class="btn btn-default" ng-click="increment(movie)" /></td>
-                <td><input type="button" value="- Length" class="btn btn-default" ng-click="decrement(movie)" /></td>
-            </tr>
-        </table>
+            </table>
+        </div>
+        <div class="col-md-6" ng-show="editable.movie">
+            <!--Single quotes are required, otherwise Angular will try to parse the value-->
+            <div ng-include="'movieApp/templates/movieEdit.html'">
 
-        {{message}}
-
-        {{inject}}
+            </div>
+        </div>
     </div>
     <script src="scripts/angular.js"></script>
     <script src="scripts/jquery-1.9.1.js"></script>
     <script src="scripts/bootstrap.js"></script>
-    <script src="movieApp/movieApp.js"></script>
-    <script src="movieApp/services/movieService.js"></script>
-    <script src="movieApp/controllers/movieListController.js"></script>
+    <script src="movieApp/movieApp.min.js"></script>
+    <script src="movieApp/services/movieService.min.js"></script>
+    <script src="movieApp/controllers/movieListController.min.js"></script>
+    <script src="movieApp/controllers/movieEditController.js"></script>
 </body>
 </html>

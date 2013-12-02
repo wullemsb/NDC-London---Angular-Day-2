@@ -9,6 +9,8 @@
         };
     }
 
+    movieService.$inject = ["$http"];
+
     app.factory("movieService", movieService);
 
 }(angular.module("movieApp")));
