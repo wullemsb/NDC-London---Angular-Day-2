@@ -22,10 +22,10 @@
             $window.alert(message);
         };
         
-        $scope.edit = function (index) {
+        $scope.edit = function (movie) {
             $scope.editable = {
-                index:index,
-                movie: angular.copy($scope.movies[index])
+                index: $scope.movies.indexOf(movie),
+                movie: angular.copy(movie)
             };
         };
 

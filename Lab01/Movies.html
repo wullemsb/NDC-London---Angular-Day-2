@@ -30,7 +30,7 @@
                 <tr data-ng-repeat="movie in movies | orderBy:'length'">
                     <td>{{movie.title |uppercase}}</td>
                     <td>{{movie.length}}</td>
-                    <td><input type="button" value="Edit" class="btn btn-default" ng-click="edit($index)" /></td>
+                    <td><input type="button" value="Edit" class="btn btn-default" ng-click="edit(movie)" /></td>
                 </tr>
             </table>
         </div>
