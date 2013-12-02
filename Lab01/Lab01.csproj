@@ -74,6 +74,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="movieApp\controllers\movieListController.js" />
     <Content Include="movieApp\movieApp.js" />
+    <Content Include="movieApp\services\movieService.js" />
     <Content Include="Movies.html" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular.js" />

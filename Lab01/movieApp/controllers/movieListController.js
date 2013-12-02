@@ -1,12 +1,12 @@
 ﻿(function (app) {
 
-    var MovieListController = function ($scope) {
-        $scope.movies =
-            [
-                { title: "Star Wars V", length: 120 },
-                { title: "Star Wars III", length: 120 },
-                { title: "Star Wars I", length: 120 }
-            ];
+    var MovieListController = function ($scope, $window,movieService) {
+        $scope.movies = movieService.getAll();
+
+        $scope.raiseAlert = function (message) {
+            $window.alert(message);
+        }
+
         $scope.increment = function (movie) {
             movie.length += 1;
             console.log("add 1");
