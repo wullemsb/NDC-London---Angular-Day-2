@@ -6,6 +6,22 @@
             $scope.movies = response.data;
         };
 
+        var onError = function (error) {
+            if (error.status == 404) {
+                $scope.error = "Not found!";
+            } else {
+                $scope.error = "Unexpected error";
+            }
+        }
+
+        var injector = angular.injector(["ng", "movieApp"]);
+
+        injector.invoke(function ($http) {
+
+        });
+
+        $scope.inject = injector.annotate(MovieListController);
+
         $scope.movies = movieService
             .getAll()
             .then(setMovies);
@@ -24,6 +40,8 @@
             console.log("remove 1");
         };
     };
+
+    MovieListController.$inject = ["$scope", "$window", "movieService"];
 
     app.controller("MovieListController", MovieListController);
 
