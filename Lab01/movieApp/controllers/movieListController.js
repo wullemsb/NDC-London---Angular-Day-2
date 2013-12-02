@@ -21,6 +21,8 @@
         $scope.raiseAlert = function (message) {
             $window.alert(message);
         };
+
+        $scope.flag = true;
         
         $scope.edit = function (movie) {
             $scope.editable = {

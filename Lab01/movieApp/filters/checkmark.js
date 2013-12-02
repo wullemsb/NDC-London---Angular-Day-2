@@ -6,4 +6,4 @@
     };
 
     app.filter("checkmark", checkmarkFilter);
-}(angular.app("movieApp")));
+}(angular.module("movieApp")));
