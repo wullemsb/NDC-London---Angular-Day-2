@@ -1,7 +1,14 @@
 ﻿(function (app) {
 
     var MovieListController = function ($scope, $window,movieService) {
-        $scope.movies = movieService.getAll();
+
+        var setMovies = function (response) {
+            $scope.movies = response.data;
+        };
+
+        $scope.movies = movieService
+            .getAll()
+            .then(setMovies);
 
         $scope.raiseAlert = function (message) {
             $window.alert(message);

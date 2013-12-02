@@ -1,12 +1,9 @@
 ﻿(function (app) {
-    var movieService = function () {
+    var movieService = function ($http) {
         var getAllMovies = function () {
-            return [
-                { title: "Star Wars V", length: 120 },
-                { title: "Star Wars III", length: 120 },
-                { title: "Star Wars I", length: 120 },
-                { title: "Starship Troopers", length: 90 }
-            ];
+
+            var defer
+            return $http.get("movieApp/data/movies.json");
         };
 
         return {
