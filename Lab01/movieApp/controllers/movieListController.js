@@ -4,6 +4,8 @@
 
         var setMovies = function (response) {
             $scope.movies = response.data;
+
+            $scope.numberOfMovies = $scope.movies.length;
         };
 
         var onError = function (error) {
@@ -16,7 +18,7 @@
 
         $scope.movies = movieService
             .getAll()
-            .then(setMovies);
+            .then(setMovies,onError);
 
         $scope.raiseAlert = function (message) {
             $window.alert(message);

@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>IMDB But Better</title>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <style>
         input.ng-valid.ng-dirty {
@@ -19,26 +20,32 @@
 </pre>
     <div data-ng-controller="MovieListController" class="row">
 
-        Flag: {{ flag | checkmark }}
-
-        <select ng-model="predicate">
-            <option value="title">Title</option>
-            <option value="length">Length</option>
-        </select>
-
-
         <div class="col-md-6">
+
+            Flag: {{ flag | checkmark }}
+
+            <select ng-model="predicate">
+                <option value="title">Title</option>
+                <option value="length">Length</option>
+            </select>
+
+            <div otc-greeting number="numberOfMovies">
+                Hello! This will be transcluded.
+            </div>
+
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th>Length</th>
+                        <th>Rating</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tr data-ng-repeat="movie in movies | orderBy:predicate">
                     <td>{{movie.title |uppercase}}</td>
                     <td>{{movie.length}}</td>
+                    <td><div rating value="movie.rating"></div></td>
                     <td><input type="button" value="Edit" class="btn btn-default" ng-click="edit(movie)" /></td>
                 </tr>
             </table>
@@ -54,9 +61,13 @@
     <script src="scripts/jquery-1.9.1.js"></script>
     <script src="scripts/bootstrap.js"></script>
     <script src="movieApp/movieApp.min.js"></script>
+    <script src="scripts/underscore.js"></script>
+    <script src="movieApp/filters/range.js"></script>
     <script src="movieApp/services/movieService.min.js"></script>
     <script src="movieApp/controllers/movieListController.min.js"></script>
     <script src="movieApp/controllers/movieEditController.js"></script>
     <script src="movieApp/filters/checkmark.js"></script>
+    <script src="movieApp/directives/otcGreeting.js"></script>
+    <script src="movieApp/directives/rating.js"></script>
 </body>
 </html>

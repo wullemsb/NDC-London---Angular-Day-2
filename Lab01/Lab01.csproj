@@ -57,8 +57,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="movieApp\directives\otcGreeting.js" />
+    <Content Include="movieApp\directives\rating.js" />
+    <Content Include="movieApp\filters\range.js" />
+    <Content Include="movieApp\templates\otcGreeting.html" />
+    <Content Include="movieApp\templates\rating.html" />
     <Content Include="scripts\angular.min.js.map" />
     <Content Include="packages.config" />
+    <Content Include="scripts\underscore.js" />
+    <Content Include="scripts\underscore.min.js" />
+    <Content Include="scripts\underscore.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
