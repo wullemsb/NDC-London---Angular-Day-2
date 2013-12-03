@@ -20,12 +20,6 @@
     <pre>
 </pre>
     <div ng-view></div>
-    <div class="col-md-6" ng-show="editable.movie">
-        <!--Single quotes are required, otherwise Angular will try to parse the value-->
-        <div ng-include="'movieApp/templates/movieEdit.html'">
-
-        </div>
-    </div>
     <script src="scripts/angular.js"></script>
     <script src="scripts/angular-route.js"></script>
     <script src="scripts/angular-animate.js"></script>
@@ -34,7 +28,7 @@
     <script src="movieApp/movieApp.min.js"></script>
     <script src="scripts/underscore.js"></script>
     <script src="movieApp/filters/range.js"></script>
-    <script src="movieApp/services/movieService.js"></script>
+    <script src="movieApp/services/movieService.min.js"></script>
     <script src="movieApp/controllers/movieListController.min.js"></script>
     <script src="movieApp/controllers/movieEditController.js"></script>
     <script src="movieApp/controllers/movieDetailsController.js"></script>
