@@ -7,15 +7,15 @@
             restrict: "EAC",
             transclude: false,
             scope: {
-                "value": "="
+                ratingValue: "="
             },
 
             link: function (scope, element) {
                 scope.addStar = function () {
-                    if (scope.value == 5)
-                        scope.value = 1;
+                    if (scope.ratingValue == 5)
+                        scope.ratingValue = 1;
                     else
-                        scope.value += 1;
+                        scope.ratingValue += 1;
                 };
            }
 

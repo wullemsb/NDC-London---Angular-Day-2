@@ -1,0 +1,17 @@
+﻿
+input.ng-dirty.ng-invalid {
+ background-color:red;
+}
+
+input.ng-dirty.ng-valid {
+ background-color:green;
+}
+
+.ng-enter {
+    transition: 1s linear all;
+    opacity:0;
+}
+
+    .ng-enter.ng-enter-active {
+        opacity:1;
+    }

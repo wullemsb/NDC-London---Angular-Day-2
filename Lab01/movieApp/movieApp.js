@@ -1,11 +1,18 @@
 ﻿(function () {
-    var app = angular.module("movieApp", []);
+    var app = angular.module("movieApp", ["ngRoute"]);
 
-    var configure=function ($httpProvider) {
+    var configure=function ($httpProvider,$routeProvider,$locationProvider) {
         $httpProvider.defaults.headers.common["x-myheader"] = "Some secret value";
-    });
 
-    configure.$inject=["$httpProvider"];
+        $routeProvider
+            .when("/",{templateUrl:"movieApp/templates/listTemplate.html"})
+            .when("/details/:id",{templateUrl:"movieApp/templates/detailsTemplate.html"})
+            .otherwise({redirectTo:"/"});
+
+        //$locationProvider
+    };
+
+    configure.$inject=["$httpProvider","$routeProvider","$locationProvider"];
 
     app.config(configure);
 
